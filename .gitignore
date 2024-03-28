@@ -8,6 +8,8 @@
 **/.idea/
 /build/
 **/build/
+.dart_tool/
+.dart_tool
 
 # SYSTEM AND JAVA FILES
 #=====================
