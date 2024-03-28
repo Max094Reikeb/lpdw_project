@@ -13,10 +13,68 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.black,
+          foregroundColor: Colors.white,
+        ),
       ),
       home: const MyHomePage(title: 'Series les plus populaires'),
+      color: Colors.black,
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+  final String imageUrl = 'https://example.com/your-image.jpg';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: Row(
+          children: [
+            Text('<', style: TextStyle(color: Colors.white)),
+            SizedBox(width: 50),
+            Text(title, style: TextStyle(color: Colors.white)),
+          ],
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 200,
+            height: 300,
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Container(
+            color: Colors.black,
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+              child: Text(
+                'The missions of the Strategic Homeland Intervention, '
+                'Enforcement and Logistics Division. A small team of operatives led by '
+                'Agent Coulson (Clark Gregg) who must deal with the strange new world of "superheroes" '
+                'after the "Battle of New York", protecting the public from new and unknown threats.',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
